@@ -1,0 +1,246 @@
+.body {
+    font-family: Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    color: #FFF;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    max-width: 1200px;
+    background-color: #C0DBD9;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100px;
+    margin-bottom: 15px;
+    padding-left: 30px;
+    background-color: #7FAFF6;
+}
+
+.green {
+    display: grid;
+    width: 100%;
+    background-color: #B3F95A;
+    grid-template-columns: 2.4fr 3.7fr 1fr;
+    /* grid-template-columns: 390px 590px 160px;  можно в пикселях, но тогда не будет пропорционально уменьшаться карточки при уменьшении контейнера*/
+    grid-template-rows: repeat(2, 198px);
+    grid-gap: 15px;
+    margin-bottom: 15px;
+}
+
+.green__card {
+    background-color: #8AD191;
+    position: relative;
+    font-size: 53px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.card-1 {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+.card-2 {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+.card-3 {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+.card-4 {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+.card-5 {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+.green__card::before {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    content: '1';
+    width: 100%;
+    height: 100%;
+}
+
+.card-1::before {
+    content: '1';
+}
+
+.card-2::before {
+    content: '2';
+}
+
+.card-3::before {
+    content: '3';
+}
+
+.card-4::before {
+    content: '4';
+}
+
+.card-5::before {
+    content: '5';
+}
+
+.blue {
+    display: flex;
+    width: 100%;
+    padding: 30px;
+    column-gap: 30px;
+    background-color: #88B5BF;
+    margin-bottom: 100px;
+}
+
+.blue__card {
+    width: 255px;
+    background-color: #0D89B0;
+    aspect-ratio: 255/199;
+}
+
+.footer {
+    display: flex;
+    width: 100%;
+    height: 100px;
+    background-color: #7FAFF6;
+}
+
+.popup-container__checkbox,
+.popup {
+    display: none;
+}
+
+.popup {
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
+
+.popup:before {
+    display: block;
+    content: ' ';
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #000;
+    opacity: .5;
+}
+
+.popup__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background-color: #fff;
+    box-sizing: border-box;
+}
+
+.popup__text {
+    color: #000;
+    font-size: 53px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.button {
+    display: flex;
+    padding: 8px 15px;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 5px;
+    background-color: #A5C7F9;
+    width: 206px;
+    height: 39px;
+    font-size: 19px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    box-sizing: none;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #95bffe;
+
+}
+
+.popup__close-button {
+    border-radius: 5px;
+    background: #7FAFF6;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 43px;
+    height: 39px;
+    padding: 8px 15px;
+    cursor: pointer;
+}
+
+.popup__cross {
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.popup__close-button:hover {
+    background-color: #A5C7F9;
+}
+
+.popup-container__checkbox:checked+.popup {
+    opacity: 1;
+    display: block;
+}
